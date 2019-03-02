@@ -287,7 +287,7 @@
         {
             return this.GetType()
                 .GetProperties()
-                .Where(pi => pi.GetType().GetGenericTypeDefinition() == typeof(DbSet<>))
+                .Where(pi => pi.PropertyType.GetGenericTypeDefinition() == typeof(DbSet<>))
                 .ToDictionary(k => k.PropertyType.GetGenericArguments().First(), v => v);
         }
 
